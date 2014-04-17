@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
+   <asset>
+      <contributor>
+         <authoring_tool>Google SketchUp 6.4.112</authoring_tool>
+      </contributor>
+      <created>2008-11-10T14:41:17Z</created>
+      <modified>2008-11-10T14:41:17Z</modified>
+      <unit name="inches" meter="0.0254"/>
+      <up_axis>Z_UP</up_axis>
+   </asset>
+   <library_images>
+      <image id="material0-image" name="material0-image">
+         <init_from>../images/texture0.JPG</init_from>
+      </image>
+   </library_images>
+   <library_materials>
+      <material id="material0ID" name="material0">
+         <instance_effect url="#material0-effect"/>
+      </material>
+   </library_materials>
+   <library_effects>
+      <effect id="material0-effect" name="material0-effect">
+         <profile_COMMON>
+            <newparam sid="material0-image-surface">
+               <surface type="2D">
+                  <init_from>material0-image</init_from>
+               </surface>
+            </newparam>
+            <newparam sid="material0-image-sampler">
+               <sampler2D>
+                  <source>material0-image-surface</source>
+               </sampler2D>
+            </newparam>
+            <technique sid="COMMON">
+               <phong>
+                  <emission>
+                     <color>0.000000 0.000000 0.000000 1</color>
+                  </emission>
+                  <ambient>
+                     <color>0.000000 0.000000 0.000000 1</color>
+                  </ambient>
+                  <diffuse>
+                     <texture texture="material0-image-sampler" texcoord="UVSET0"/>
+                  </diffuse>
+                  <specular>
+                     <color>0.330000 0.330000 0.330000 1</color>
+                  </specular>
+                  <shininess>
+                     <float>20.000000</float>
+                  </shininess>
+                  <reflectivity>
+                     <float>0.100000</float>
+                  </reflectivity>
+                  <transparent>
+                     <color>1 1 1 1</color>
+                  </transparent>
+                  <transparency>
+                     <float>0.000000</float>
+                  </transparency>
+               </phong>
+            </technique>
+            <extra>
+               <technique profile="GOOGLEEARTH">
+                  <double_sided>1</double_sided>
+               </technique>
+            </extra>
+         </profile_COMMON>
+      </effect>
+   </library_effects>
+   <library_geometries>
+      <geometry id="mesh1-geometry" name="mesh1-geometry">
+         <mesh>
+            <source id="mesh1-geometry-position">
+               <float_array id="mesh1-geometry-position-array" count="12">-896.945862 3313.097656 0.001151 -1896.945801 4313.097656 0.001151 -1896.945801 3313.097656 0.001151 -896.945862 4313.097656 0.001151 </float_array>
+               <technique_common>
+                  <accessor source="#mesh1-geometry-position-array" count="4" stride="3">
+                     <param name="X" type="float"/>
+                     <param name="Y" type="float"/>
+                     <param name="Z" type="float"/>
+                  </accessor>
+               </technique_common>
+            </source>
+            <source id="mesh1-geometry-normal">
+               <float_array id="mesh1-geometry-normal-array" count="3">0.000000 0.000000 1.000000 </float_array>
+               <technique_common>
+                  <accessor source="#mesh1-geometry-normal-array" count="1" stride="3">
+                     <param name="X" type="float"/>
+                     <param name="Y" type="float"/>
+                     <param name="Z" type="float"/>
+                  </accessor>
+               </technique_common>
+            </source>
+            <source id="mesh1-geometry-uv">
+               <float_array id="mesh1-geometry-uv-array" count="8">0.998574 0.002251 0.002746 0.997891 0.005696 0.002251 0.995624 0.997891 </float_array>
+               <technique_common>
+                  <accessor source="#mesh1-geometry-uv-array" count="4" stride="2">
+                     <param name="S" type="float"/>
+                     <param name="T" type="float"/>
+                  </accessor>
+               </technique_common>
+            </source>
+            <vertices id="mesh1-geometry-vertex">
+               <input semantic="POSITION" source="#mesh1-geometry-position"/>
+            </vertices>
+            <triangles material="material0" count="2">
+               <input semantic="VERTEX" source="#mesh1-geometry-vertex" offset="0"/>
+               <input semantic="NORMAL" source="#mesh1-geometry-normal" offset="1"/>
+               <input semantic="TEXCOORD" source="#mesh1-geometry-uv" offset="2" set="0"/>
+               <p>0 0 0 1 0 1 2 0 2 1 0 1 0 0 0 3 0 3 </p>
+            </triangles>
+         </mesh>
+      </geometry>
+   </library_geometries>
+   <library_nodes>
+      <node id="Sphere06" name="Sphere06">
+         <node id="mesh1" name="mesh1">
+            <instance_geometry url="#mesh1-geometry">
+               <bind_material>
+                  <technique_common>
+                     <instance_material symbol="material0" target="#material0ID">
+                        <bind_vertex_input semantic="UVSET0" input_semantic="TEXCOORD" input_set="0"/>
+                     </instance_material>
+                  </technique_common>
+               </bind_material>
+            </instance_geometry>
+         </node>
+      </node>
+      <node id="skp11C2" name="skp11C2">
+         <node id="Sphere06_1" name="Sphere06_1">
+            <matrix>
+               1.000000 0.000000 0.000000 0.000000
+               0.000000 1.000000 0.000000 0.000000
+               0.000000 0.000000 1.000000 0.000000
+               0.000000 0.000000 0.000000 1.000000
+            </matrix>
+            <instance_node url="#Sphere06"/>
+         </node>
+      </node>
+   </library_nodes>
+   <library_cameras>
+      <camera id="Camera-camera" name="Camera-camera">
+         <optics>
+            <technique_common>
+               <perspective>
+                  <xfov>46.666667</xfov>
+                  <yfov>35.000000</yfov>
+                  <znear>1.000000</znear>
+                  <zfar>1000.000000</zfar>
+               </perspective>
+            </technique_common>
+         </optics>
+      </camera>
+   </library_cameras>
+   <library_visual_scenes>
+      <visual_scene id="SketchUpScene" name="SketchUpScene">
+         <node id="Model" name="Model">
+            <node id="skp11C2_1" name="skp11C2_1">
+               <matrix>
+                  1.000000 0.000000 0.000000 1424.623663
+                  0.000000 1.000000 0.000000 -3811.861481
+                  0.000000 0.000000 1.000000 -0.000000
+                  0.000000 0.000000 0.000000 1.000000
+               </matrix>
+               <instance_node url="#skp11C2"/>
+            </node>
+         </node>
+         <node id="Camera" name="Camera">
+            <matrix>
+               0.879290 -0.273231 0.390120 536.497723
+               0.476286 0.504423 -0.720214 -1478.610758
+               -0.000000 0.819086 0.573671 879.618026
+               0.000000 0.000000 0.000000 1.000000
+            </matrix>
+            <instance_camera url="#Camera-camera"/>
+         </node>
+      </visual_scene>
+   </library_visual_scenes>
+   <scene>
+      <instance_visual_scene url="#SketchUpScene"/>
+   </scene>
+</COLLADA>
